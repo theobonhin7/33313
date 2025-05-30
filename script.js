@@ -29,10 +29,14 @@ async function fetchApi(endpoint, method, body, resultElementId) {
 // Eventos para cada funcionalidade
 
 // Consultar placa
-document.getElementById('formCheckPlate').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const plate = document.getElementById('plateCheck').value.trim();
-  fetchApi(`/check/${plate}`, 'GET', null, 'resultCheckPlate');
+document.getElementById('btnConsultarPlaca').addEventListener('click', () => {
+  const plate = document.getElementById('plateInput').value.trim();
+  if (!plate) {
+    alert('Por favor, digite uma placa.');
+    return;
+  }
+
+  fetchApi(`/check/${encodeURIComponent(plate)}`, 'resultadoPlaca');
 });
 
 // Listar veículos ativos
