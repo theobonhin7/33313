@@ -3,33 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APIs do Estacionamento</title>
+  <title>APIs de Estacionamento</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>APIs de Estacionamento</h1>
 
-    <!-- Consulta por placa -->
+    <!-- Adicionar Vaga -->
     <section>
-      <h2>Consultar Placa</h2>
-      <input type="text" id="plateInput" placeholder="Digite a placa (ex: ABC1234)" />
-      <button id="btnConsultarPlaca">Consultar</button>
-      <pre id="resultadoPlaca"></pre>
+      <h2>Adicionar Vaga</h2>
+      <form id="formAddSpot">
+        <input type="text" id="spotNumber" placeholder="Número da Vaga" required />
+        <button type="submit">Adicionar</button>
+      </form>
+      <pre id="resultadoAddSpot"></pre>
     </section>
 
-    <!-- Lista de vagas -->
+    <!-- Listar Vagas -->
     <section>
       <h2>Listar Vagas</h2>
       <button id="btnListarVagas">Listar</button>
-      <pre id="resultadoVagas"></pre>
+      <pre id="resultadoListarVagas"></pre>
     </section>
 
-    <!-- Consulta status do estacionamento -->
+    <!-- Deletar Vaga -->
     <section>
-      <h2>Status do Estacionamento</h2>
-      <button id="btnStatusEstacionamento">Ver Status</button>
-      <pre id="resultadoStatus"></pre>
+      <h2>Deletar Vaga</h2>
+      <input type="text" id="deleteSpotId" placeholder="ID da Vaga" required />
+      <button id="btnDeletarVaga">Deletar</button>
+      <pre id="resultadoDeletarVaga"></pre>
     </section>
   </div>
 

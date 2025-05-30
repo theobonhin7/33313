@@ -1,12 +1,20 @@
 const baseUrl = 'http://cnms-parking-api.net.uztec.com.br/api/v1';
 
-// Função genérica para realizar requisições à API
-async function fetchApi(endpoint, resultElementId) {
+// Função genérica para requisições
+async function fetchApi(endpoint, method = 'GET', body = null, resultElementId) {
   const resultElement = document.getElementById(resultElementId);
   resultElement.textContent = 'Carregando...';
 
   try {
-    const response = await fetch(`${baseUrl}${endpoint}`);
+    const response = await fetch(`${baseUrl}${endpoint}`, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: body ? JSON.stringify(body) : null
+    });
+
     if (!response.ok) {
       throw new Error(`Erro: ${response.status} - ${response.statusText}`);
     }
@@ -18,22 +26,28 @@ async function fetchApi(endpoint, resultElementId) {
   }
 }
 
-// Consultar placa
-document.getElementById('btnConsultarPlaca').addEventListener('click', () => {
-  const plate = document.getElementById('plateInput').value.trim();
-  if (!plate) {
-    alert('Por favor, digite uma placa.');
+// Adicionar Vaga
+document.getElementById('formAddSpot').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const spotNumber = document.getElementById('spotNumber').value.trim();
+  if (!spotNumber) {
+    alert('Por favor, informe o número da vaga.');
     return;
   }
-  fetchApi(`/check/plate?plate=${encodeURIComponent(plate)}`, 'resultadoPlaca');
+  fetchApi('/parking/spots', 'POST', { number: spotNumber }, 'resultadoAddSpot');
 });
 
-// Listar vagas
+// Listar Vagas
 document.getElementById('btnListarVagas').addEventListener('click', () => {
-  fetchApi('/parking/spots', 'resultadoVagas');
+  fetchApi('/parking/spots', 'GET', null, 'resultadoListarVagas');
 });
 
-// Status do estacionamento
-document.getElementById('btnStatusEstacionamento').addEventListener('click', () => {
-  fetchApi('/parking/status', 'resultadoStatus');
+// Deletar Vaga
+document.getElementById('btnDeletarVaga').addEventListener('click', () => {
+  const spotId = document.getElementById('deleteSpotId').value.trim();
+  if (!spotId) {
+    alert('Por favor, informe o ID da vaga.');
+    return;
+  }
+  fetchApi(`/parking/spots/${spotId}`, 'DELETE', null, 'resultadoDeletarVaga');
 });

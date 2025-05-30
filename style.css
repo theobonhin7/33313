@@ -31,16 +31,17 @@ h2 {
   margin-bottom: 10px;
 }
 
-input[type="text"] {
-  width: calc(100% - 10px);
+input[type="text"],
+button,
+form {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px 0;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  font-size: 16px;
 }
 
 button {
-  padding: 10px 20px;
   background: #007bff;
   color: white;
   border: none;
