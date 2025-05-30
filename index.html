@@ -10,41 +10,80 @@
   <div class="container">
     <h1>APIs de Estacionamento</h1>
 
-    <!-- Adicionar Vaga -->
+    <!-- Verificar se veículo está no estacionamento -->
     <section>
-      <h2>Adicionar Vaga</h2>
-      <form id="formAddSpot">
-        <input type="text" id="spotNumber" placeholder="Número da Vaga" required />
-        <button type="submit">Adicionar</button>
+      <h2>Consultar Placa</h2>
+      <form id="formCheckPlate">
+        <input type="text" id="plateCheck" placeholder="Digite a placa" required />
+        <button type="submit">Consultar</button>
       </form>
-      <pre id="resultadoAddSpot"></pre>
+      <pre id="resultCheckPlate"></pre>
     </section>
 
-
-
-    <!-- Listar Vagas Específicas -->
+    <!-- Listar veículos no estacionamento -->
     <section>
-      <h2>Listar Vagas Específicas</h2>
-      <form id="formListarVagaEspecifica">
-        <input type="text" id="spotId" placeholder="ID ou Critério da Vaga" required />
-        <button type="submit">Buscar</button>
+      <h2>Listar Veículos Ativos</h2>
+      <button id="btnListActive">Listar</button>
+      <pre id="resultListActive"></pre>
+    </section>
+
+    <!-- Verificar vagas disponíveis -->
+    <section>
+      <h2>Verificar Vagas Disponíveis</h2>
+      <button id="btnCheckSlots">Verificar</button>
+      <pre id="resultCheckSlots"></pre>
+    </section>
+
+    <!-- Adicionar veículo -->
+    <section>
+      <h2>Registrar Entrada de Veículo</h2>
+      <form id="formAddVehicle">
+        <input type="text" id="plateAdd" placeholder="Digite a placa" required />
+        <button type="submit">Registrar</button>
       </form>
-      <pre id="resultadoVagaEspecifica"></pre>
+      <pre id="resultAddVehicle"></pre>
     </section>
 
-    <!-- Deletar Vaga -->
+    <!-- Remover veículo -->
     <section>
-      <h2>Deletar Vaga</h2>
-      <input type="text" id="deleteSpotId" placeholder="ID da Vaga" required />
-      <button id="btnDeletarVaga">Deletar</button>
-      <pre id="resultadoDeletarVaga"></pre>
+      <h2>Remover Veículo</h2>
+      <input type="text" id="plateRemove" placeholder="Digite a placa" required />
+      <button id="btnRemoveVehicle">Remover</button>
+      <pre id="resultRemoveVehicle"></pre>
     </section>
 
-    <!-- Verificar Todos os Carros -->
+    <!-- Atualizar veículo -->
     <section>
-      <h2>Verificar Todos os Carros</h2>
-      <button id="btnVerificarCarros">Verificar</button>
-      <pre id="resultadoVerificarCarros"></pre>
+      <h2>Atualizar Dados de Veículo</h2>
+      <form id="formUpdateVehicle">
+        <input type="text" id="plateUpdate" placeholder="Digite a placa" required />
+        <input type="text" id="newPlate" placeholder="Nova Placa" />
+        <button type="submit">Atualizar</button>
+      </form>
+      <pre id="resultUpdateVehicle"></pre>
+    </section>
+
+    <!-- Registrar saída de veículo -->
+    <section>
+      <h2>Registrar Saída de Veículo</h2>
+      <input type="text" id="plateExit" placeholder="Digite a placa" required />
+      <button id="btnExitVehicle">Registrar Saída</button>
+      <pre id="resultExitVehicle"></pre>
+    </section>
+
+    <!-- Gerar relatório diário -->
+    <section>
+      <h2>Gerar Relatório Diário</h2>
+      <button id="btnGenerateReport">Gerar Relatório</button>
+      <pre id="resultGenerateReport"></pre>
+    </section>
+
+    <!-- Tempo de permanência -->
+    <section>
+      <h2>Tempo de Permanência</h2>
+      <input type="text" id="plateTime" placeholder="Digite a placa" required />
+      <button id="btnCheckTime">Ver Tempo</button>
+      <pre id="resultCheckTime"></pre>
     </section>
   </div>
 

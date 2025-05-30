@@ -1,7 +1,7 @@
 const baseUrl = 'http://cnms-parking-api.net.uztec.com.br/api/v1';
 
 // Função genérica para requisições
-async function fetchApi(endpoint, method = 'GET', body = null, resultElementId) {
+async function fetchApi(endpoint, method, body, resultElementId) {
   const resultElement = document.getElementById(resultElementId);
   resultElement.textContent = 'Carregando...';
 
@@ -10,13 +10,13 @@ async function fetchApi(endpoint, method = 'GET', body = null, resultElementId) 
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Accept: 'application/json',
       },
-      body: body ? JSON.stringify(body) : null
+      body: body ? JSON.stringify(body) : null,
     });
 
     if (!response.ok) {
-      throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+      throw new Error(`Erro ${response.status}: ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -26,44 +26,59 @@ async function fetchApi(endpoint, method = 'GET', body = null, resultElementId) 
   }
 }
 
-// Adicionar Vaga
-document.getElementById('formAddSpot').addEventListener('submit', (e) => {
+// Eventos para cada funcionalidade
+
+// Consultar placa
+document.getElementById('formCheckPlate').addEventListener('submit', (e) => {
   e.preventDefault();
-  const spotNumber = document.getElementById('spotNumber').value.trim();
-  if (!spotNumber) {
-    alert('Por favor, informe o número da vaga.');
-    return;
-  }
-  fetchApi('/parking/spots', 'POST', { number: spotNumber }, 'resultadoAddSpot');
+  const plate = document.getElementById('plateCheck').value.trim();
+  fetchApi(`/check/${plate}`, 'GET', null, 'resultCheckPlate');
 });
 
-// Listar Todas as Vagas
-document.getElementById('btnListarVagas').addEventListener('click', () => {
-  fetchApi('/parking/spots', 'GET', null, 'resultadoListarVagas');
+// Listar veículos ativos
+document.getElementById('btnListActive').addEventListener('click', () => {
+  fetchApi('/active', 'GET', null, 'resultListActive');
 });
 
-// Listar Vaga Específica
-document.getElementById('formListarVagaEspecifica').addEventListener('submit', (e) => {
+// Verificar vagas disponíveis
+document.getElementById('btnCheckSlots').addEventListener('click', () => {
+  fetchApi('/slots', 'GET', null, 'resultCheckSlots');
+});
+
+// Registrar entrada de veículo
+document.getElementById('formAddVehicle').addEventListener('submit', (e) => {
   e.preventDefault();
-  const spotId = document.getElementById('spotId').value.trim();
-  if (!spotId) {
-    alert('Por favor, informe um critério para buscar a vaga.');
-    return;
-  }
-  fetchApi(`/parking/spots/${spotId}`, 'GET', null, 'resultadoVagaEspecifica');
+  const plate = document.getElementById('plateAdd').value.trim();
+  fetchApi('/entry', 'POST', { plate }, 'resultAddVehicle');
 });
 
-// Deletar Vaga
-document.getElementById('btnDeletarVaga').addEventListener('click', () => {
-  const spotId = document.getElementById('deleteSpotId').value.trim();
-  if (!spotId) {
-    alert('Por favor, informe o ID da vaga.');
-    return;
-  }
-  fetchApi(`/parking/spots/${spotId}`, 'DELETE', null, 'resultadoDeletarVaga');
+// Remover veículo
+document.getElementById('btnRemoveVehicle').addEventListener('click', () => {
+  const plate = document.getElementById('plateRemove').value.trim();
+  fetchApi(`/cancel/${plate}`, 'DELETE', null, 'resultRemoveVehicle');
 });
 
-// Verificar Todos os Carros
-document.getElementById('btnVerificarCarros').addEventListener('click', () => {
-  fetchApi('/parking/cars', 'GET', null, 'resultadoVerificarCarros');
+// Atualizar dados de veículo
+document.getElementById('formUpdateVehicle').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const plate = document.getElementById('plateUpdate').value.trim();
+  const newPlate = document.getElementById('newPlate').value.trim();
+  fetchApi(`/update/${plate}`, 'PUT', { newPlate }, 'resultUpdateVehicle');
+});
+
+// Registrar saída de veículo
+document.getElementById('btnExitVehicle').addEventListener('click', () => {
+  const plate = document.getElementById('plateExit').value.trim();
+  fetchApi(`/exit/${plate}`, 'PATCH', null, 'resultExitVehicle');
+});
+
+// Gerar relatório diário
+document.getElementById('btnGenerateReport').addEventListener('click', () => {
+  fetchApi('/report', 'GET', null, 'resultGenerateReport');
+});
+
+// Ver tempo de permanência
+document.getElementById('btnCheckTime').addEventListener('click', () => {
+  const plate = document.getElementById('plateTime').value.trim();
+  fetchApi(`/time/${plate}`, 'GET', null, 'resultCheckTime');
 });
