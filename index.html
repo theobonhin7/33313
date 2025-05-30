@@ -10,16 +10,17 @@
   <div class="container">
     <h1>APIs de Estacionamento</h1>
 
-    <!-- Verificar se veículo está no estacionamento -->
+    <!-- Adicionar Vaga -->
     <section>
-      <h2>Consultar Placa</h2>
-      <form id="formCheckPlate">
-        <input type="text" id="plateCheck" placeholder="Digite a placa" required />
-        <button type="submit">Consultar</button>
+      <h2>Adicionar Vaga</h2>
+      <form id="formAddSpot">
+        <input type="text" id="spotNumber" placeholder="Número da Vaga" required />
+        <button type="submit">Adicionar</button>
       </form>
-      <pre id="resultCheckPlate"></pre>
+      <pre id="resultadoAddSpot"></pre>
     </section>
 
+<<<<<<< HEAD
         <!-- Adicionar veículo -->
     <section>
       <h2>Registrar Entrada de Veículo</h2>
@@ -36,56 +37,37 @@
       <button id="btnListActive">Listar</button>
       <pre id="resultListActive"></pre>
     </section>
+=======
+>>>>>>> parent of 356bf06 (7)
 
-    <!-- Verificar vagas disponíveis -->
+
+<<<<<<< HEAD
+
+=======
+    <!-- Listar Vagas Específicas -->
     <section>
-      <h2>Verificar Vagas Disponíveis</h2>
-      <button id="btnCheckSlots">Verificar</button>
-      <pre id="resultCheckSlots"></pre>
-    </section>
-
-
-
-    <!-- Remover veículo -->
-    <section>
-      <h2>Remover Veículo</h2>
-      <input type="text" id="plateRemove" placeholder="Digite a placa" required />
-      <button id="btnRemoveVehicle">Remover</button>
-      <pre id="resultRemoveVehicle"></pre>
-    </section>
-
-    <!-- Atualizar veículo -->
-    <section>
-      <h2>Atualizar Dados de Veículo</h2>
-      <form id="formUpdateVehicle">
-        <input type="text" id="plateUpdate" placeholder="Digite a placa" required />
-        <input type="text" id="newPlate" placeholder="Nova Placa" />
-        <button type="submit">Atualizar</button>
+      <h2>Listar Vagas Específicas</h2>
+      <form id="formListarVagaEspecifica">
+        <input type="text" id="spotId" placeholder="ID ou Critério da Vaga" required />
+        <button type="submit">Buscar</button>
       </form>
-      <pre id="resultUpdateVehicle"></pre>
+      <pre id="resultadoVagaEspecifica"></pre>
+    </section>
+>>>>>>> parent of 356bf06 (7)
+
+    <!-- Deletar Vaga -->
+    <section>
+      <h2>Deletar Vaga</h2>
+      <input type="text" id="deleteSpotId" placeholder="ID da Vaga" required />
+      <button id="btnDeletarVaga">Deletar</button>
+      <pre id="resultadoDeletarVaga"></pre>
     </section>
 
-    <!-- Registrar saída de veículo -->
+    <!-- Verificar Todos os Carros -->
     <section>
-      <h2>Registrar Saída de Veículo</h2>
-      <input type="text" id="plateExit" placeholder="Digite a placa" required />
-      <button id="btnExitVehicle">Registrar Saída</button>
-      <pre id="resultExitVehicle"></pre>
-    </section>
-
-    <!-- Gerar relatório diário -->
-    <section>
-      <h2>Gerar Relatório Diário</h2>
-      <button id="btnGenerateReport">Gerar Relatório</button>
-      <pre id="resultGenerateReport"></pre>
-    </section>
-
-    <!-- Tempo de permanência -->
-    <section>
-      <h2>Tempo de Permanência</h2>
-      <input type="text" id="plateTime" placeholder="Digite a placa" required />
-      <button id="btnCheckTime">Ver Tempo</button>
-      <pre id="resultCheckTime"></pre>
+      <h2>Verificar Todos os Carros</h2>
+      <button id="btnVerificarCarros">Verificar</button>
+      <pre id="resultadoVerificarCarros"></pre>
     </section>
   </div>
 

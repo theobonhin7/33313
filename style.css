@@ -1,20 +1,23 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  background: #f9f9f9;
+  margin: 0;
   padding: 20px;
-  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
+  background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
 }
 
-h1, h2 {
+h1 {
+  font-size: 24px;
   color: #333;
 }
 
@@ -22,19 +25,27 @@ section {
   margin-bottom: 20px;
 }
 
-form, input, button {
-  display: block;
-  margin-top: 10px;
+h2 {
+  font-size: 20px;
+  color: #555;
   margin-bottom: 10px;
-  width: 100%;
+}
+
+input[type="text"],
+button,
+form {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
 }
 
 button {
-  padding: 10px;
   background: #007bff;
-  color: #fff;
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -43,9 +54,11 @@ button:hover {
 }
 
 pre {
-  background: #f8f9fa;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  overflow-x: auto;
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
 }
