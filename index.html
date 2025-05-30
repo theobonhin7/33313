@@ -2,16 +2,35 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consulta de Placa - Estacionamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APIs do Estacionamento</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Consultar Placa</h1>
-    <input type="text" id="plateInput" placeholder="Digite a placa (ex: ABC1234)" />
-    <button id="btnConsultar">Consultar</button>
-    <pre id="resultado"></pre>
+    <h1>APIs de Estacionamento</h1>
+
+    <!-- Consulta por placa -->
+    <section>
+      <h2>Consultar Placa</h2>
+      <input type="text" id="plateInput" placeholder="Digite a placa (ex: ABC1234)" />
+      <button id="btnConsultarPlaca">Consultar</button>
+      <pre id="resultadoPlaca"></pre>
+    </section>
+
+    <!-- Lista de vagas -->
+    <section>
+      <h2>Listar Vagas</h2>
+      <button id="btnListarVagas">Listar</button>
+      <pre id="resultadoVagas"></pre>
+    </section>
+
+    <!-- Consulta status do estacionamento -->
+    <section>
+      <h2>Status do Estacionamento</h2>
+      <button id="btnStatusEstacionamento">Ver Status</button>
+      <pre id="resultadoStatus"></pre>
+    </section>
   </div>
 
   <script src="script.js"></script>

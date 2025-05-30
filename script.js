@@ -1,33 +1,39 @@
-document.getElementById('btnConsultar').addEventListener('click', async () => {
+const baseUrl = 'http://cnms-parking-api.net.uztec.com.br/api/v1';
+
+// Função genérica para realizar requisições à API
+async function fetchApi(endpoint, resultElementId) {
+  const resultElement = document.getElementById(resultElementId);
+  resultElement.textContent = 'Carregando...';
+
+  try {
+    const response = await fetch(`${baseUrl}${endpoint}`);
+    if (!response.ok) {
+      throw new Error(`Erro: ${response.status} - ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    resultElement.textContent = JSON.stringify(data, null, 2);
+  } catch (error) {
+    resultElement.textContent = `Erro: ${error.message}`;
+  }
+}
+
+// Consultar placa
+document.getElementById('btnConsultarPlaca').addEventListener('click', () => {
   const plate = document.getElementById('plateInput').value.trim();
-  const resultadoEl = document.getElementById('resultado');
-  
   if (!plate) {
     alert('Por favor, digite uma placa.');
     return;
   }
-  
-  resultadoEl.textContent = 'Carregando...';
+  fetchApi(`/check/plate?plate=${encodeURIComponent(plate)}`, 'resultadoPlaca');
+});
 
-  const url = `https://cnms-parking-api.net.uztec.com.br/api/v1/check/plate?plate=${encodeURIComponent(plate)}`;
+// Listar vagas
+document.getElementById('btnListarVagas').addEventListener('click', () => {
+  fetchApi('/parking/spots', 'resultadoVagas');
+});
 
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer SUA_CHAVE_API_AQUI', // Troque pela sua chave real
-        'Accept': 'application/json'
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    resultadoEl.textContent = JSON.stringify(data, null, 2);
-
-  } catch (error) {
-    resultadoEl.textContent = `Erro: ${error.message}`;
-  }
+// Status do estacionamento
+document.getElementById('btnStatusEstacionamento').addEventListener('click', () => {
+  fetchApi('/parking/status', 'resultadoStatus');
 });
