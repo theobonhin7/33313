@@ -37,9 +37,20 @@ document.getElementById('formAddSpot').addEventListener('submit', (e) => {
   fetchApi('/parking/spots', 'POST', { number: spotNumber }, 'resultadoAddSpot');
 });
 
-// Listar Vagas
+// Listar Todas as Vagas
 document.getElementById('btnListarVagas').addEventListener('click', () => {
   fetchApi('/parking/spots', 'GET', null, 'resultadoListarVagas');
+});
+
+// Listar Vaga Específica
+document.getElementById('formListarVagaEspecifica').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const spotId = document.getElementById('spotId').value.trim();
+  if (!spotId) {
+    alert('Por favor, informe um critério para buscar a vaga.');
+    return;
+  }
+  fetchApi(`/parking/spots/${spotId}`, 'GET', null, 'resultadoVagaEspecifica');
 });
 
 // Deletar Vaga
@@ -50,4 +61,9 @@ document.getElementById('btnDeletarVaga').addEventListener('click', () => {
     return;
   }
   fetchApi(`/parking/spots/${spotId}`, 'DELETE', null, 'resultadoDeletarVaga');
+});
+
+// Verificar Todos os Carros
+document.getElementById('btnVerificarCarros').addEventListener('click', () => {
+  fetchApi('/parking/cars', 'GET', null, 'resultadoVerificarCarros');
 });

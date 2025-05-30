@@ -22,9 +22,19 @@
 
     <!-- Listar Vagas -->
     <section>
-      <h2>Listar Vagas</h2>
+      <h2>Listar Todas as Vagas</h2>
       <button id="btnListarVagas">Listar</button>
       <pre id="resultadoListarVagas"></pre>
+    </section>
+
+    <!-- Listar Vagas Específicas -->
+    <section>
+      <h2>Listar Vagas Específicas</h2>
+      <form id="formListarVagaEspecifica">
+        <input type="text" id="spotId" placeholder="ID ou Critério da Vaga" required />
+        <button type="submit">Buscar</button>
+      </form>
+      <pre id="resultadoVagaEspecifica"></pre>
     </section>
 
     <!-- Deletar Vaga -->
@@ -33,6 +43,13 @@
       <input type="text" id="deleteSpotId" placeholder="ID da Vaga" required />
       <button id="btnDeletarVaga">Deletar</button>
       <pre id="resultadoDeletarVaga"></pre>
+    </section>
+
+    <!-- Verificar Todos os Carros -->
+    <section>
+      <h2>Verificar Todos os Carros</h2>
+      <button id="btnVerificarCarros">Verificar</button>
+      <pre id="resultadoVerificarCarros"></pre>
     </section>
   </div>
 
