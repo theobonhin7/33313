@@ -12,75 +12,66 @@
   </header>
 
   <main>
-    <section id="acoes">
-      <h2>Ações</h2>
-      
-      <div class="acao">
-        <h3>Ver Slots</h3>
-        <button onclick="verSlots()">Verificar Slots</button>
+    <section class="actions">
+      <h2>Operações</h2>
+      <div class="form-group">
+        <label>Ver Slots Disponíveis</label>
+        <button onclick="verSlots()">Ver Slots</button>
         <pre id="slots"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Listar Veículos Ativos</h3>
+      <div class="form-group">
+        <label>Listar Veículos Ativos</label>
         <button onclick="listarAtivos()">Listar Ativos</button>
         <pre id="ativos"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Registrar Entrada</h3>
-        <input id="entradaPlaca" type="text" placeholder="Placa do Veículo">
-        <input id="entradaModelo" type="text" placeholder="Modelo do Veículo">
+      <div class="form-group">
+        <label>Registrar Entrada</label>
+        <input type="text" id="entradaPlaca" placeholder="Placa do Veículo">
+        <input type="text" id="entradaModelo" placeholder="Modelo do Veículo">
         <button onclick="registrarEntrada()">Registrar</button>
         <pre id="entrada"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Check Veículo</h3>
-        <input id="checkPlaca" type="text" placeholder="Placa do Veículo">
-        <button onclick="checkVeiculo()">Verificar</button>
+      <div class="form-group">
+        <label>Checar Veículo</label>
+        <input type="text" id="checkPlaca" placeholder="Placa do Veículo">
+        <button onclick="checkVeiculo()">Checar</button>
         <pre id="check"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Registrar Saída</h3>
-        <input id="saidaPlaca" type="text" placeholder="Placa do Veículo">
+      <div class="form-group">
+        <label>Registrar Saída</label>
+        <input type="text" id="saidaPlaca" placeholder="Placa do Veículo">
         <button onclick="registrarSaida()">Registrar Saída</button>
         <pre id="saida"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Cancelar Registro</h3>
-        <input id="cancelarPlaca" type="text" placeholder="Placa do Veículo">
+      <div class="form-group">
+        <label>Cancelar Registro</label>
+        <input type="text" id="cancelarPlaca" placeholder="Placa do Veículo">
         <button onclick="cancelarRegistro()">Cancelar</button>
         <pre id="cancelar"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Ver Tempo de Permanência</h3>
-        <input id="tempoPlaca" type="text" placeholder="Placa do Veículo">
+      <div class="form-group">
+        <label>Ver Tempo de Permanência</label>
+        <input type="text" id="tempoPlaca" placeholder="Placa do Veículo">
         <button onclick="verTempo()">Ver Tempo</button>
         <pre id="tempo"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Atualizar Veículo</h3>
-        <input id="updatePlaca" type="text" placeholder="Placa Atual">
-        <input id="novaPlaca" type="text" placeholder="Nova Placa">
+      <div class="form-group">
+        <label>Atualizar Veículo</label>
+        <input type="text" id="updatePlaca" placeholder="Placa Antiga">
+        <input type="text" id="novaPlaca" placeholder="Nova Placa">
         <button onclick="atualizarVeiculo()">Atualizar</button>
         <pre id="update"></pre>
       </div>
-
-      <div class="acao">
-        <h3>Gerar Relatório</h3>
-        <button onclick="gerarRelatorio()">Gerar Relatório</button>
+      <div class="form-group">
+        <label>Gerar Relatório</label>
+        <button onclick="gerarRelatorio()">Gerar</button>
         <pre id="relatorio"></pre>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Gerenciamento de Estacionamento &copy; 2025</p>
+    <p>Desenvolvido por theo - Todos os direitos reservados.</p>
   </footer>
 
   <script src="script.js"></script>

@@ -1,51 +1,91 @@
+/* Geral */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f9;
   color: #333;
 }
 
-section {
-  margin-bottom: 20px;
+/* Cabeçalho */
+header {
+  background: #005f73;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
 }
 
-form, input, button {
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+/* Seção Principal */
+main {
+  padding: 2rem;
+}
+
+.actions {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actions h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #005f73;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
   display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+  width: calc(100% - 10px);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-  padding: 10px;
-  background: #007bff;
+  background: #0a9396;
   color: #fff;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #005f73;
 }
 
 pre {
-  background: #f8f9fa;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  overflow-x: auto;
+  background: #f4f4f9;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #005f73;
+  color: #fff;
+  margin-top: 2rem;
 }
